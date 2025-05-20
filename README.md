@@ -41,7 +41,7 @@ Este projeto é uma API REST desenvolvida com **Java**, **Spring Boot** e **H2 D
 
 ## ▶️ Como rodar o projeto
 
-1. **Abra o projeto na IDE.**
+1. **Abra o projeto no ECLIPSE.**
 2. Clique com o botão direito sobre o projeto e selecione:  
    **`Maven` > `Update Project`**
 3. Vá até a classe `MottuApplication.java`, clique com o botão direito e selecione:  
