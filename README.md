@@ -68,4 +68,4 @@ Você também pode visualizar os dados diretamente no banco em memória (H2):
 1. Acesse:  
    [http://localhost:8080/h2-console](http://localhost:8080/h2-console)
 
-2. Preencha apenas o campo **JDBC URL** com:  
+2. Preencha apenas o campo **JDBC URL** com:  jdbc:h2:mem:testdb
