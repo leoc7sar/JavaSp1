@@ -27,6 +27,8 @@ Desenvolvido com **Java** e **Spring Boot**, o sistema expõe uma API REST pront
 
 Este projeto é uma API REST desenvolvida com **Java**, **Spring Boot** e **H2 Database**, com funcionalidades de CRUD para motos e galpões. A aplicação permite realizar testes diretamente pelo navegador, Postman ou H2 Console.
 
+A ideia inovadora se baseia no controle da entrada de motos nos galpoes, para melhor organizaçao, evitando superlotação e desorganizaçãp.
+
 ---
 
 ## ✅ Pré-requisitos
@@ -53,6 +55,53 @@ Este projeto é uma API REST desenvolvida com **Java**, **Spring Boot** e **H2 D
 
 Com o projeto em execução, você pode testar os endpoints pelo navegador ou Postman:
 
+1. Acesse o H2 para testar a funcionalidade dastabelas motos e galpoes (abaixo colocarei codigos prontos completos para testar a aplicaçao):
+ Preencha apenas o campo **JDBC URL** com:  jdbc:h2:mem:testdb
+   [http://localhost:8080/h2-console](http://localhost:8080/h2-console)
+
+   ****
+
+// De SELECT para ver as tabelas de forma atualizada
+SELECT * FROM GALPOES
+SELECT * FROM MOTOS
+ 
+// Caso existam itens dentro da tabela delete-as para evitar erros, se ja estiver vazia nao precisa
+DELETE FROM MOTOS;
+DELETE FROM GALPOES;
+//comece inserindo uma moto sem galpao para evitar erros
+INSERT INTO MOTOS (id, disponibilidade, modelo, placa) VALUES (1, TRUE, 'Yamaha MT-07', 'ABC1234');
+// ADICIONE MOTOS NA TABELA GALPAO PARA EVITAR ERROS
+ALTER TABLE GALPOES ADD COLUMN motos INT;
+
+ 
+// INSERTS para inserir os galpoes MOTTU
+INSERT INTO GALPOES (id, nome, endereco, motos) VALUES (1, 'Galpão Norte', 'Avenida Brasil, 456 - Rio de Janeiro, RJ', 278);
+INSERT INTO GALPOES (id, nome, endereco, motos) VALUES (2, 'Galpão Sul', 'Rua do Comércio, 789 - Porto Alegre, RS', 349);
+INSERT INTO GALPOES (id, nome, endereco, motos) VALUES (3, 'Galpão Leste', 'Praça da Liberdade, 101 - Belo Horizonte, MG', 112);
+INSERT INTO GALPOES (id, nome, endereco, motos) VALUES (4, 'Galpão Oeste', 'Rua XV de Novembro, 202 - Curitiba, PR', 463);
+INSERT INTO GALPOES (id, nome, endereco, motos) VALUES (5, 'Galpão Expansão', 'Avenida Amazonas, 303 - Manaus, AM', 191);
+// INSERTS para inserir as novas motos e escolher qual galpao adiciona-la
+INSERT INTO MOTOS (id, disponibilidade, modelo, placa, galpao_id) VALUES (2, TRUE, 'Suzuki GSX-S750', 'XYZ5678', 4);
+INSERT INTO MOTOS (id, disponibilidade, modelo, placa, galpao_id) VALUES (3, TRUE, 'Kawasaki Z900', 'DEF9101', 3);
+INSERT INTO MOTOS (id, disponibilidade, modelo, placa, galpao_id) VALUES (4, TRUE, 'Ducati Monster 797', 'GHI1121', 5);
+INSERT INTO MOTOS (id, disponibilidade, modelo, placa, galpao_id) VALUES (5, TRUE, 'BMW S 1000 RR', 'JKL3344', 3);
+ 
+// para mudar a disponibilidade da moto
+UPDATE motos
+SET disponibilidade = false // escolha se ela esta disponivel ou nao
+WHERE id = 2; // escolha a moto que sera editada
+// Editar o numero de motos dentro do galpao escolhido usando UPDATE
+UPDATE GALPOES  
+SET MOTOS = '10'  //aqui escolha a quantidade de motos que deseja
+WHERE ID = 2; //escolha qual galpao deseja editar a quantidade de motos
+ 
+// insira a moto id 1 á algum galpao para que tudo funcione perfeitamente
+UPDATE MOTOS
+SET GALPAO_ID = 2
+WHERE ID = 1;
+
+****
+
 - 🔍 Listar motos:  
   [http://localhost:8080/motos](http://localhost:8080/motos)
 
@@ -61,11 +110,6 @@ Com o projeto em execução, você pode testar os endpoints pelo navegador ou Po
 
 ---
 
-## 🧪 Testando pelo H2 Console
 
-Você também pode visualizar os dados diretamente no banco em memória (H2):
 
-1. Acesse:  
-   [http://localhost:8080/h2-console](http://localhost:8080/h2-console)
 
-2. Preencha apenas o campo **JDBC URL** com:  jdbc:h2:mem:testdb
