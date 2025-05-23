@@ -27,7 +27,7 @@ Desenvolvido com **Java** e **Spring Boot**, o sistema expõe uma API REST pront
 
 Este projeto é uma API REST desenvolvida com **Java**, **Spring Boot** e **H2 Database**, com funcionalidades de CRUD para motos e galpões. A aplicação permite realizar testes diretamente pelo navegador, Postman ou H2 Console.
 
-A ideia inovadora se baseia no controle da entrada de motos nos galpoes, para melhor organizaçao, evitando superlotação e desorganizaçãp.
+A ideia inovadora se baseia no controle da entrada de motos nos galpoes, para melhor organizaçao, evitando superlotação e desorganização.
 
 ---
 
