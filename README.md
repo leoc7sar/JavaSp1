@@ -48,6 +48,8 @@ A ideia inovadora se baseia no controle da entrada de motos nos galpoes, para me
    **`Maven` > `Update Project`**
 3. Vá até a classe `MottuApplication.java`, clique com o botão direito e selecione:  
    **`Run As` > `Java Application`**
+   OU
+3. Apertar icone Spring boot, botao direito no projeto mottu, Re(start), e seguir os proximos passo testando os endpointes.
 
 ---
 
@@ -58,6 +60,8 @@ Com o projeto em execução, você pode testar os endpoints pelo navegador ou Po
 1. Acesse o H2 para testar a funcionalidade dastabelas motos e galpoes (abaixo colocarei codigos prontos completos para testar a aplicaçao):
  Preencha apenas o campo **JDBC URL** com:  jdbc:h2:mem:testdb
    [http://localhost:8080/h2-console](http://localhost:8080/h2-console)
+
+MUITO IMPORTANTE: SIGA TODA A ORDEM DOS COMANDOS PARA FUNCIONALIDADE
 
    ****
 
@@ -102,7 +106,7 @@ WHERE ID = 1;
 
 ****
 
-- 🔍 Listar motos:  
+- 🔍 Listar motos:
   [http://localhost:8080/motos](http://localhost:8080/motos)
 
 - 🔍 Listar galpões:  
